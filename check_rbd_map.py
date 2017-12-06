@@ -17,8 +17,9 @@ def create_pools(path):
             if "#" in line:
                 continue
             else:
-                image = re.split(r' ', line, maxsplit=1)
-                pools.append(image[0])
+                if re.search(r'\w', line):
+                    image = re.split(r' ', line, maxsplit=1)
+                    pools.append(image[0])
     return pools
 
 
@@ -55,4 +56,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
